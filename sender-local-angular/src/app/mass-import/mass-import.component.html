@@ -1,0 +1,15 @@
+<meta charset="UTF-8"/>
+<select title="订单类型" [(ngModel)]="orderTypeString">
+  <option value="mergeOrders" selected>拼单</option>
+  <option value="directOrders">直发</option>
+</select>
+<div *ngFor="let bc of bigCustomers">
+  <label for="numOrders">一键导入订单数量</label><input id="numOrders" placeholder="订单导入数量" [(ngModel)]="bc.numOrders"/>
+  <button (click)="oneClickImport(bc.id, bc.numOrders)">
+    大商户{{bc.phone}}一键导入{{bc.numOrders}}个订单
+  </button>
+  <input [(ngModel)]="orderId" placeholder="手动输入订单id!"/>
+  <button (click)="verifySender(bc.id, orderId)">手动验证订单</button>
+  <br/>
+</div>
+<app-flush-message></app-flush-message>

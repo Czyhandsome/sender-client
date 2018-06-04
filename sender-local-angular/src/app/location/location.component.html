@@ -1,0 +1,14 @@
+<div>
+  快递员位置
+  <select [(ngModel)]="senderLocation" title="快递员位置">
+    <option *ngFor="let location of locations" [ngValue]="location">
+      {{location.toString()}}
+    </option>
+  </select>
+  <button (click)="updateLocationChoose()">上传位置</button>
+</div>
+<div>
+  <label>快递员经度<input [(ngModel)]="longitude"/></label>
+  <label>快递员纬度<input [(ngModel)]="latitude"/></label>
+  <button (click)="updateLocationHand()">手动输入位置上传</button>
+</div>

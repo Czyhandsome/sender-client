@@ -1,0 +1,12 @@
+/**
+ * 行程状态
+ */
+export enum RoutineStatus {
+  CREATED = 'CREATED',
+  ACTIVATED = 'ACTIVATED',
+  WAIT_FOR_RESPONSE = 'WAIT_FOR_RESPONSE',
+  CANCELLED = 'CANCELLED',
+  TIMEOUT = 'TIMEOUT',
+  REJECTED = 'REJECTED',
+  ACCEPTED = 'ACCEPTED'
+}

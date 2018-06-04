@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+    <!--<button *ngIf="!isAuthenticated()" (click)="changeToLocal()">切换至本地</button>
+    <button *ngIf="!isAuthenticated()" (click)="changeToTest()">切换至测试</button>-->
+  </h1>
+  <p *ngIf="domain_url">{{domain_url}}</p>
+  ============== 一键导入 ==============<br/>
+  <app-mass-import></app-mass-import>
+  ============== 一键导入 ==============<br/>
+  <router-outlet></router-outlet>
+</div>
+

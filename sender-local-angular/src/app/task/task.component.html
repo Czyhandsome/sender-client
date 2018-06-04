@@ -1,0 +1,52 @@
+<div>
+  <button (click)="updateTask()">刷新任务</button><br/>
+  <div>
+    <div *ngIf="!currentTask">No current task yet!</div>
+    <div *ngIf="currentTask">
+      <p>任务id {{currentTask.taskId}}</p>
+      <p>任务类型 {{currentTask.taskType}}</p>
+      <p>任务状态 {{currentTask.taskStatus}}</p>
+      <p *ngIf="currentTask.remark">任务备注 {{currentTask.remark}}</p>
+    </div>
+  </div>
+  <div *ngIf="taskDto">
+    <div>
+      <table>
+        <tr>
+          <th>订单id</th>
+          <th>发件人姓名</th>
+          <th>发件人电话</th>
+          <th>发件人地址</th>
+          <th>发件人详细地址</th>
+          <th>物品名称</th>
+          <th>物品大小</th>
+          <th>物品重量</th>
+          <th>物品类型</th>
+          <th>物品备注</th>
+          <th>快递员验证码</th>
+        </tr>
+        <tr *ngFor="let order of taskDto.orders">
+          <td>{{order.orderId}}</td>
+          <td>{{order.starter.name}}</td>
+          <td>{{order.starter.phonenumber}}</td>
+          <td>{{order.starter.addressName}}</td>
+          <td>{{order.starter.addressDetail}}</td>
+          <td>{{order.item.name}}</td>
+          <td>{{order.item.size}}</td>
+          <td>{{order.item.weight}}</td>
+          <td>{{order.item.type}}</td>
+          <td>{{order.item.remark}}
+            <button (click)="startFetchOrder(taskDto.taskId, order.orderId)">开始取件并发送orderId</button>
+            <button (click)="endFetchOrder(taskDto.taskId, order.orderId)">结束取件</button>
+            <button (click)="startSendOrder(taskDto.taskId, order.orderId)">开始送件</button>
+            <button (click)="verifyReceiver(taskDto.taskId, order.orderId)">验证快递员</button>
+            <button (click)="endSendOrder(taskDto.taskId, order.orderId)">结束送件</button>
+          </td>
+          <td>{{order.code}}</td>
+        </tr>
+      </table>
+      <input type="file" (change)="getFile($event)"/>
+      <app-flush-message></app-flush-message>
+    </div>
+  </div>
+</div>

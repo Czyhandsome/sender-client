@@ -1,0 +1,25 @@
+<div>
+  <button (click)="createRoutine()">发布行程</button>
+  <table *ngIf="hasRoutine()">
+    <tr>
+      <th>行程id</th>
+      <th>快递员id</th>
+      <th>起始地址名称</th>
+      <th>终止地址名称</th>
+      <th>预约时间</th>
+      <th>行程状态</th>
+    </tr>
+    <tr *ngFor="let routine of currentRoutines">
+      <td>{{routine.routineId}}</td>
+      <td>{{routine.senderId}}</td>
+      <td>{{routine.beginAddress.addressName}}</td>
+      <td>{{routine.endAddress.addressName}}</td>
+      <td>{{routine.dueTime}}</td>
+      <td>{{routine.routineStatus}}
+        <button (click)="cancelRoutine(routine.routineId)">取消行程</button>
+      </td>
+    </tr>
+  </table>
+  <h3 *ngIf="!hasRoutine()">当前没有行程!</h3>
+  <app-flush-message></app-flush-message>
+</div>
