@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
     {phone: '18949203682', password: '123456'},
     {phone: '13966716001', password: '123456'},
     {phone: '18226626306', password: '123456'},
-    {phone: '18855998280', password: '123456'}
+    {phone: '18855998280', password: '123456'},
+    {phone: '15956960191', password: '123456'}
   ];
 
   phonenumber: string;
