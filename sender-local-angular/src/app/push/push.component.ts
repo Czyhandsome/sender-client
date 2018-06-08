@@ -82,24 +82,26 @@ export class PushComponent implements OnInit, OnDestroy {
     this.push.connect();
     this.subscription = this.push.taskObserver()
       .subscribe(payload => {
-        switch (payload.type) {
-          case TASK_PUSH:
-            this.message = '当前有任务推送!';
-            this.pushTask = payload.object;
-            log(`任务{${this.pushTask.id}推送!`);
-            break;
-          case MERGE_ORDER_IN:
-            this.message = '当前任务有新订单拼入!';
-            log(`新订单拼入任务了!`);
-            break;
-          case MERGE_FINISH:
-            this.message = '拼单时间结束了!';
-            log(`拼单时间结束!`);
-            break;
-          case ALARM:
-            this.message = '重新推送消息来了, 请及时处理任务推送!';
-            log(`收到任务推送提醒消息`);
-            break;
+        if (payload != null) {
+          switch (payload.type) {
+            case TASK_PUSH:
+              this.message = '当前有任务推送!';
+              this.pushTask = payload.object;
+              log(`任务{${this.pushTask.id}推送!`);
+              break;
+            case MERGE_ORDER_IN:
+              this.message = '当前任务有新订单拼入!';
+              log(`新订单拼入任务了!`);
+              break;
+            case MERGE_FINISH:
+              this.message = '拼单时间结束了!';
+              log(`拼单时间结束!`);
+              break;
+            case ALARM:
+              this.message = '重新推送消息来了, 请及时处理任务推送!';
+              log(`收到任务推送提醒消息`);
+              break;
+          }
         }
       });
   }

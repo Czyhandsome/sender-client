@@ -3,7 +3,7 @@ import {ApiConfig} from '../config/api.config';
 import {AuthService} from '../auth/auth.service';
 import {webSocket, WebSocketSubject, WebSocketSubjectConfig} from 'rxjs/webSocket';
 import {Observable} from 'rxjs/Observable';
-import {filter, map} from 'rxjs/operators';
+import {retry} from 'rxjs/operators';
 import {PayloadObject} from '../entity/payload.object';
 import {HttpClient} from '@angular/common/http';
 import {GenericMsg} from '../entity/generic-msg';
@@ -35,7 +35,7 @@ export class PushService {
   }
 
   public taskObserver(): Observable<PayloadObject<any>> {
-    return this.subject;
+    return this.subject.pipe(retry());
   }
 
   public disconnect() {
