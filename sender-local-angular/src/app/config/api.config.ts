@@ -123,7 +123,7 @@ export class ApiConfig {
       `/orders/${orderId}/startSend`;
   }
 
-  // 验证快递员
+  // 验证收件人
   static verifyReceiverUrl(senderId: string,
                            taskId: string,
                            orderId: string,
@@ -138,5 +138,30 @@ export class ApiConfig {
     : string {
     return `${DOMAIN_URL}/api/sender/${senderId}/tasks/${taskId}` +
       `/orders/${orderId}/stopSend`;
+  }
+
+  // ********** 一键呼叫 ********** //
+  // 接受一键呼叫
+  static acceptQuickcallUrl(senderId: string, quickcallId: string): string {
+    return `${DOMAIN_URL}/api/sender/${senderId}/quickcall/${quickcallId}/accept`;
+  }
+
+  // 拒绝一键呼叫
+  static rejectQuickcallUrl(senderId: string, quickcallId: string): string {
+    return `${DOMAIN_URL}/api/sender/${senderId}/quickcall/${quickcallId}/reject`;
+  }
+
+  // 获取当前正在进行的一键呼叫列表
+  static getCurrentQuickcallsUrl(senderId: string, page: number, size: number) {
+    return `${DOMAIN_URL}/api/sender/${senderId}/quickcall/all?pageIndex=${page}&pageSize=${size}`;
+  }
+
+  // 成交一键呼叫
+  static finishQuickcallUrl(senderId: string, quickcallId: string) {
+    return `${DOMAIN_URL}/api/sender/${senderId}/quickcall/${quickcallId}/accept/finish`;
+  }
+
+  static nodealQuickcallUrl(senderId: string, quickcallId: string) {
+    return `${DOMAIN_URL}/api/sender/${senderId}/quickcall/${quickcallId}/accept/nodeal`;
   }
 }

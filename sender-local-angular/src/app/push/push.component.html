@@ -1,11 +1,19 @@
 <div>
   {{message}}
-  <input placeholder="手动输入taskId" [(ngModel)]="handTaskId"/>
-  <button (click)="acceptHand(handTaskId)">手动接收任务</button>
 </div>
 <div *ngIf="pushTask">
   {{pushTask.id}} {{pushTask.taskType}} {{pushTask.orderQuantity}} {{pushTask.expectedIncome}}
   <p *ngIf="pushTask.remark">{{pushTask.remark}}</p>
-  <button (click)="accept()">接受任务</button>
-  <button (click)="reject()">拒绝任务</button>
+  <button (click)="accept(pushTask)">接受任务</button>
+  <button (click)="reject(pushTask)">拒绝任务</button>
+  <input placeholder="手动输入taskId" [(ngModel)]="handTaskId"/>
+  <button (click)="acceptHand(handTaskId)">手动接收任务</button>
+</div>
+<div *ngIf="quickcall">
+  {{quickcall.id}} {{quickcall.quickcallType}} {{quickcall.address}} {{quickcall.tip}} {{quickcall.remark}}
+  <p *ngIf="quickcall.remark">{{quickcall.remark}}</p>
+  <button (click)="acceptQuickcall(quickcall)">接受一键呼叫</button>
+  <button (click)="rejectQuickcall(quickcall)">拒绝一键呼叫</button>
+  <input placeholder="手动输入quickcallId" [(ngModel)]="handTaskId"/>
+  <button (click)="acceptQuickcallHand(handTaskId)">手动接收任务</button>
 </div>

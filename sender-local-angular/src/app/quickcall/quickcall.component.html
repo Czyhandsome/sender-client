@@ -1,0 +1,14 @@
+<div>
+  <button (click)="updateQuickcall()">刷新当前一键呼叫列表</button>
+</div>
+<div *ngIf="currentQuickcalls.length == 0">
+  当前没有一键呼叫!
+</div>
+<div *ngIf="currentQuickcalls.length > 0">
+  <div *ngFor="let quickcall of currentQuickcalls">
+    {{quickcall.quickcallId}} {{quickcall.tip}}
+    <button (click)="finishQuickcall(quickcall.quickcallId)">设置完成</button>
+    <button (click)="nodealQuickcall(quickcall.quickcallId)">设置不交易</button>
+  </div>
+</div>
+<app-flush-message></app-flush-message>

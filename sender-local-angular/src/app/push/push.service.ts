@@ -46,7 +46,7 @@ export class PushService {
    * 接受任务
    * @param {string} taskId 任务id
    */
-  public accept(taskId: string): Observable<GenericMsg<any>> {
+  public acceptTask(taskId: string): Observable<GenericMsg<any>> {
     const url = ApiConfig.acceptTaskUrl(this.auth.getSenderId(), taskId);
     return this.http.post<GenericMsg<any>>(url, {});
   }
@@ -55,8 +55,26 @@ export class PushService {
    * 拒绝任务
    * @param {string} taskId 任务id
    */
-  public reject(taskId: string): Observable<GenericMsg<any>> {
+  public rejectTask(taskId: string): Observable<GenericMsg<any>> {
     const url = ApiConfig.rejectTaskUrl(this.auth.getSenderId(), taskId);
+    return this.http.post<GenericMsg<any>>(url, {});
+  }
+
+  /**
+   * 快递员接受一键呼叫
+   * @param {string} quickcallId
+   */
+  public acceptQuickcall(quickcallId: string) {
+    const url = ApiConfig.acceptQuickcallUrl(this.auth.getSenderId(), quickcallId);
+    return this.http.post<GenericMsg<any>>(url, {});
+  }
+
+  /**
+   * 快递员接受一键呼叫
+   * @param {string} quickcallId
+   */
+  public rejectQuickcall(quickcallId: string) {
+    const url = ApiConfig.rejectQuickcallUrl(this.auth.getSenderId(), quickcallId);
     return this.http.post<GenericMsg<any>>(url, {});
   }
 }

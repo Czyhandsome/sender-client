@@ -12,3 +12,4 @@ export const TASK_PUSH = 1;
 export const MERGE_ORDER_IN = 2;
 export const MERGE_FINISH = 3;
 export const ALARM = 4;
+export const QUICK_CALL_PUSH = 5;
