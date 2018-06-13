@@ -23,6 +23,7 @@ import { MassImportComponent } from './mass-import/mass-import.component';
 import { FlushMessageComponent } from './flush-message/flush-message.component';
 import { LocationComponent } from './location/location.component';
 import { QuickcallComponent } from './quickcall/quickcall.component';
+import { MassQuickcallComponent } from './mass-quickcall/mass-quickcall.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { QuickcallComponent } from './quickcall/quickcall.component';
     MassImportComponent,
     FlushMessageComponent,
     LocationComponent,
-    QuickcallComponent
+    QuickcallComponent,
+    MassQuickcallComponent
   ],
   imports: [
     BrowserModule,

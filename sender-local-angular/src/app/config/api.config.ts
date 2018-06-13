@@ -3,7 +3,7 @@ const aliczy = '47.98.99.234';
 const local = '192.168.100.103';
 
 // IP地址
-let IP = local;
+let IP = aliczy;
 // 端口号
 const PORT = 8080;
 
