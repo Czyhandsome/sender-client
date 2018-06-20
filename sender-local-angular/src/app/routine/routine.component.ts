@@ -5,6 +5,8 @@ import {Subscription, timer} from 'rxjs';
 import {isSuccess} from '../entity/generic-msg';
 import {AuthService} from '../auth/auth.service';
 import {FlushMessageComponent} from '../flush-message/flush-message.component';
+import {RoutineCommand} from "./routine-command";
+import {TaskType} from "../task/task.type";
 
 @Component({
   selector: 'app-routine',
@@ -17,6 +19,23 @@ export class RoutineComponent implements OnInit, OnDestroy {
   currentRoutines: Array<Routine>;
 
   private subscription: Subscription;
+
+  // 要发布的默认Routine
+  dueTimeDelaySeconds: number = 0;
+  routine: RoutineCommand = {
+    beginAddress: {
+      'longitude': 117.310954,
+      'latitude': 31.831635,
+      'addressName': '创客云谷'
+    },
+    endAddress: {
+      'longitude': 117.282285,
+      'latitude': 31.865395,
+      'addressName': '三孝口'
+    },
+    dueTime: new Date().getTime(),
+    taskTypes: [TaskType.DirectTask, TaskType.MergeTask]
+  };
 
   // 提示消息
   @ViewChild(FlushMessageComponent)
@@ -47,7 +66,10 @@ export class RoutineComponent implements OnInit, OnDestroy {
   }
 
   createRoutine() {
-    this.routineService.publishRoutine(this.auth.getSenderId())
+    // 更新默认routine的预约时间
+    this.routine.dueTime = new Date().getTime() + this.dueTimeDelaySeconds * 1000;
+    // 发送请求
+    this.routineService.publishRoutine(this.auth.getSenderId(), this.routine)
       .subscribe(msg => {
         if (isSuccess(msg)) {
           this.changeMsg(`发布行程成功! ${JSON.stringify(msg.data)}`);

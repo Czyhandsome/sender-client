@@ -1,4 +1,8 @@
 <div>
+  <label>
+    预约延迟秒数
+    <input [(ngModel)]="dueTimeDelaySeconds"/>
+  </label>
   <button (click)="createRoutine()">发布行程</button>
   <table *ngIf="hasRoutine()">
     <tr>

@@ -21,23 +21,9 @@ export class RoutineService {
   }
 
   // 发布行程
-  public publishRoutine(senderId: string): Observable<GenericMsg<any>> {
+  public publishRoutine(senderId: string, routineComand: RoutineCommand): Observable<GenericMsg<any>> {
     const url = ApiConfig.createRoutineUrl(senderId);
-    const routine: RoutineCommand = {
-      beginAddress: {
-        'longitude': 117.310954,
-        'latitude': 31.831635,
-        'addressName': '创客云谷'
-      },
-      endAddress: {
-        'longitude': 117.282285,
-        'latitude': 31.865395,
-        'addressName': '三孝口'
-      },
-      dueTime: new Date().getTime() + 1000 * 60 * 5 + 1000 * 10,
-      taskTypes: [TaskType.DirectTask, TaskType.MergeTask]
-    };
-    return this.http.post<GenericMsg<any>>(url, routine);
+    return this.http.post<GenericMsg<any>>(url, routineComand);
   }
 
   // 取消行程
