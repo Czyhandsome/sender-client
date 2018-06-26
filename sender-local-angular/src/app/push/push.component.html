@@ -6,6 +6,8 @@
   <p *ngIf="pushTask.remark">{{pushTask.remark}}</p>
   <button (click)="accept(pushTask)">接受任务</button>
   <button (click)="reject(pushTask)">拒绝任务</button>
+</div>
+<div>
   <input placeholder="手动输入taskId" [(ngModel)]="handTaskId"/>
   <button (click)="acceptHand(handTaskId)">手动接收任务</button>
 </div>
