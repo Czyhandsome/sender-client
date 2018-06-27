@@ -42,6 +42,11 @@ export class ApiConfig {
     return !isPublic;
   }
 
+  // ********** 推送 ********** //
+  static currentPushingUrl(senderId: string): string {
+    return `${DOMAIN_URL}/api/sender/${senderId}/tasks/currentPushing`;
+  }
+
   // ********** Task ********** //
   static currentTaskUrl(senderId: string): string {
     return `${DOMAIN_URL}/api/sender/${senderId}/tasks/currentTask`;

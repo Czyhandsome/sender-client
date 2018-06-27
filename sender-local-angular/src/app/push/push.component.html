@@ -1,15 +1,11 @@
 <div>
-  {{message}}
+  <app-flush-message></app-flush-message>
 </div>
 <div *ngIf="pushTask">
   {{pushTask.id}} {{pushTask.taskType}} {{pushTask.orderQuantity}} {{pushTask.expectedIncome}}
   <p *ngIf="pushTask.remark">{{pushTask.remark}}</p>
   <button (click)="accept(pushTask)">接受任务</button>
   <button (click)="reject(pushTask)">拒绝任务</button>
-</div>
-<div>
-  <input placeholder="手动输入taskId" [(ngModel)]="handTaskId"/>
-  <button (click)="acceptHand(handTaskId)">手动接收任务</button>
 </div>
 <div *ngIf="quickcall">
   {{quickcall.id}} {{quickcall.quickcallType}} {{quickcall.address}} {{quickcall.tip}} {{quickcall.remark}}
@@ -18,6 +14,5 @@
   <button (click)="rejectQuickcall(quickcall)">拒绝一键呼叫</button>
 </div>
 <div>
-  <input placeholder="手动输入quickcallId" [(ngModel)]="handQuickcallId"/>
-  <button (click)="acceptQuickcallHand(handQuickcallId)">手动接收一键呼叫</button>
+  <button (click)="handUpdateTaskOrQuickcall()">查看当前推送数据</button>
 </div>

@@ -42,6 +42,11 @@ export class PushService {
     this.subject.unsubscribe();
   }
 
+  public getCurrentPushing(): Observable<GenericMsg<any>> {
+    const url = ApiConfig.currentPushingUrl(this.auth.getSenderId());
+    return this.http.get<GenericMsg<any>>(url);
+  }
+
   /**
    * 接受任务
    * @param {string} taskId 任务id
