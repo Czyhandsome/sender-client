@@ -1,17 +1,22 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-    <!--<button *ngIf="!isAuthenticated()" (click)="changeToLocal()">切换至本地</button>
-    <button *ngIf="!isAuthenticated()" (click)="changeToTest()">切换至测试</button>-->
-  </h1>
-  <p *ngIf="domain_url">{{domain_url}}</p>
-  ============== 一键导入 ==============<br/>
-  <app-mass-import></app-mass-import>
-  ============== 一键导入 ==============<br/>
-  ============== 一键呼叫 ==============<br/>
-  <app-mass-quickcall></app-mass-quickcall>
-  ============== 一键呼叫 ==============<br/>
-  <router-outlet></router-outlet>
-</div>
+<ul>
+  <li>
+    <div style="text-align:center">
+      <h1>
+        Welcome to {{ title }}!
+        <!--<button *ngIf="!isAuthenticated()" (click)="changeToLocal()">切换至本地</button>
+        <button *ngIf="!isAuthenticated()" (click)="changeToTest()">切换至测试</button>-->
+      </h1>
+    </div>
+    <p *ngIf="domain_url">{{domain_url}}</p>
+  </li>
+  <li>
+    <app-mass-import></app-mass-import>
+  </li>
+  <li>
+    <app-mass-quickcall></app-mass-quickcall>
+  </li>
+  <li>
+    <router-outlet></router-outlet>
+  </li>
+</ul>
 

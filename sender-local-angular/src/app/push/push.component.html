@@ -1,18 +1,21 @@
 <div>
-  <app-flush-message></app-flush-message>
-</div>
-<div *ngIf="pushTask">
-  {{pushTask.id}} {{pushTask.taskType}} {{pushTask.orderQuantity}} {{pushTask.expectedIncome}}
-  <p *ngIf="pushTask.remark">{{pushTask.remark}}</p>
-  <button (click)="accept(pushTask)">接受任务</button>
-  <button (click)="reject(pushTask)">拒绝任务</button>
-</div>
-<div *ngIf="quickcall">
-  {{quickcall.id}} {{quickcall.quickcallType}} {{quickcall.address}} {{quickcall.tip}} {{quickcall.remark}}
-  <p *ngIf="quickcall.remark">{{quickcall.remark}}</p>
-  <button (click)="acceptQuickcall(quickcall)">接受一键呼叫</button>
-  <button (click)="rejectQuickcall(quickcall)">拒绝一键呼叫</button>
-</div>
-<div>
-  <button (click)="handUpdateTaskOrQuickcall()">查看当前推送数据</button>
+  <h2>推送模块</h2>
+  <div>
+    <app-flush-message></app-flush-message>
+  </div>
+  <div *ngIf="pushTask">
+    {{pushTask.id}} {{pushTask.taskType}} {{pushTask.orderQuantity}} {{pushTask.expectedIncome}}
+    <p *ngIf="pushTask.remark">{{pushTask.remark}}</p>
+    <button (click)="accept(pushTask)">接受任务</button>
+    <button (click)="reject(pushTask)">拒绝任务</button>
+  </div>
+  <div *ngIf="quickcall">
+    {{quickcall.id}} {{quickcall.quickcallType}} {{quickcall.address}} {{quickcall.tip}} {{quickcall.remark}}
+    <p *ngIf="quickcall.remark">{{quickcall.remark}}</p>
+    <button (click)="acceptQuickcall(quickcall)">接受一键呼叫</button>
+    <button (click)="rejectQuickcall(quickcall)">拒绝一键呼叫</button>
+  </div>
+  <div>
+    <button (click)="handUpdateTaskOrQuickcall()">查看当前推送数据</button>
+  </div>
 </div>
