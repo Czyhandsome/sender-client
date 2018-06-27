@@ -84,6 +84,8 @@ export class PushComponent implements OnInit, OnDestroy {
     }
   }
 
+  handQuickcallId: string;
+
   // 手动接受quickcall
   public acceptQuickcallHand(quickcallId: string) {
     this.push.acceptQuickcall(quickcallId)

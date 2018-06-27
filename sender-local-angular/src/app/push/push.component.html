@@ -16,6 +16,8 @@
   <p *ngIf="quickcall.remark">{{quickcall.remark}}</p>
   <button (click)="acceptQuickcall(quickcall)">接受一键呼叫</button>
   <button (click)="rejectQuickcall(quickcall)">拒绝一键呼叫</button>
-  <input placeholder="手动输入quickcallId" [(ngModel)]="handTaskId"/>
-  <button (click)="acceptQuickcallHand(handTaskId)">手动接收任务</button>
+</div>
+<div>
+  <input placeholder="手动输入quickcallId" [(ngModel)]="handQuickcallId"/>
+  <button (click)="acceptQuickcallHand(handQuickcallId)">手动接收一键呼叫</button>
 </div>
