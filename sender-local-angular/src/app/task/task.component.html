@@ -38,14 +38,17 @@
             <td>{{order.item.size}}</td>
             <td>{{order.item.weight}}</td>
             <td>{{order.item.type}}</td>
-            <td>{{order.item.remark}}
-              <button (click)="startFetchOrder(taskDto.taskId, order.orderId)">开始取件并发送orderId</button>
-              <button (click)="endFetchOrder(taskDto.taskId, order.orderId)">结束取件</button>
-              <button (click)="startSendOrder(taskDto.taskId, order.orderId)">开始送件</button>
-              <button (click)="verifyReceiver(taskDto.taskId, order.orderId)">验证快递员</button>
-              <button (click)="endSendOrder(taskDto.taskId, order.orderId)">结束送件</button>
+            <td>{{order.item.remark}}</td>
+            <td>
+              {{order.code}}
+              <div>
+                <button (click)="startFetchOrder(taskDto.taskId, order.orderId)">开始取件并发送orderId</button>
+                <button (click)="endFetchOrder(taskDto.taskId, order.orderId)">结束取件</button>
+                <button (click)="startSendOrder(taskDto.taskId, order.orderId)">开始送件</button>
+                <button (click)="verifyReceiver(taskDto.taskId, order.orderId)">验证快递员</button>
+                <button (click)="endSendOrder(taskDto.taskId, order.orderId)">结束送件</button>
+              </div>
             </td>
-            <td>{{order.code}}</td>
           </tr>
         </table>
         <input type="file" (change)="getFile($event)"/>
