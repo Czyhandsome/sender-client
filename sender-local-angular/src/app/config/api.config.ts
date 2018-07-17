@@ -3,7 +3,7 @@ const aliczy = '47.98.99.234';
 const local = '192.168.100.102';
 
 // IP地址
-let IP = local;
+let IP = aliczy;
 // 端口号
 const PORT = 8080;
 
@@ -168,5 +168,16 @@ export class ApiConfig {
 
   static nodealQuickcallUrl(senderId: string, quickcallId: string) {
     return `${DOMAIN_URL}/api/sender/${senderId}/quickcall/${quickcallId}/accept/nodeal`;
+  }
+
+  // ********** 快递员信息 ********** //
+  // 获取快递员基本信息
+  static getSenderInfoUrl(senderId: string) {
+    return `${DOMAIN_URL}/api/sender/${senderId}/senderBasicInfo`;
+  }
+
+  // 修改交通工具类型
+  static changeVehicleUrl(senderId: string, vehicle: string) {
+    return `${DOMAIN_URL}/api/sender/${senderId}/senderBasicInfo/changeVehicle/${vehicle}`;
   }
 }

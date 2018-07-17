@@ -4,5 +4,27 @@
     当前状态为: {{currentStatus}}
     <button (click)="changeStatus() ">切换状态</button>
   </div>
+  <div *ngIf="senderInfo">
+    <table>
+      <tr>
+        <th>快递员id</th>
+        <th>快递员姓名</th>
+        <th>快递员电话</th>
+        <th>快递员交通工具</th>
+      </tr>
+      <tr>
+        <td>{{senderInfo.id}}</td>
+        <td>{{senderInfo.name}}</td>
+        <td>{{senderInfo.phonenumber}}</td>
+        <td>{{senderInfo.vehicle}}</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <select [(ngModel)]="vehicle" title="SelectVehicle">
+      <option *ngFor="let vehicle of vehicles" [value]="vehicle">{{vehicle}}</option>
+    </select>
+    <button (click)="changeVehicle()">修改交通工具</button>
+  </div>
   <app-flush-message></app-flush-message>
 </div>
